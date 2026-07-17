@@ -1,0 +1,91 @@
+.footer {
+  background: #fff;
+}
+
+.grid {
+  padding-top: 64px;
+  padding-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1d1d1f;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.brandAccent {
+  color: #0033ff;
+}
+
+.tagline {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6e6e73;
+  margin: 0;
+  max-width: 300px;
+}
+
+.colTitle {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #86868b;
+  margin: 0 0 16px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  font-size: 15px;
+  color: #6e6e73;
+}
+
+.link:hover {
+  color: #0033ff;
+}
+
+.bottom {
+  border-top: 1px solid #e8e8ed;
+}
+
+.bottomInner {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fine {
+  font-size: 13px;
+  color: #86868b;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

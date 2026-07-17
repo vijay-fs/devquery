@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #1d1d1f;
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+a {
+  color: #0033ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0022cc;
+}
+
+::selection {
+  background: rgba(0, 51, 255, 0.15);
+}
+
+/* Shared layout and voice primitives */
+.dq-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: clamp(24px, 5vw, 40px);
+  padding-right: clamp(24px, 5vw, 40px);
+}
+
+.dq-badge {
+  display: inline-block;
+  background: rgba(0, 51, 255, 0.1);
+  color: #0033ff;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.dq-mono {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+.dq-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0033ff;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.dq-btn:hover {
+  background: #0022cc;
+  color: #fff;
+}
+
+/* Keyframes shared across section modules */
+@keyframes dqDash {
+  to {
+    stroke-dashoffset: -48;
+  }
+}
+
+@keyframes dqTravel {
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes dqPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes dqOrbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dqSwingL {
+  0% {
+    transform: rotate(42deg);
+    animation-timing-function: ease-in;
+  }
+  25% {
+    transform: rotate(0deg);
+    animation-timing-function: linear;
+  }
+  75% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: rotate(42deg);
+  }
+}
+
+@keyframes dqSwingR {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: linear;
+  }
+  25% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: rotate(-42deg);
+    animation-timing-function: ease-in;
+  }
+  75% {
+    transform: rotate(0deg);
+    animation-timing-function: linear;
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes dqRipple {
+  0% {
+    transform: scale(0.25);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+}
+
+@keyframes dqPend {
+  0%,
+  100% {
+    transform: rotate(26deg);
+  }
+  50% {
+    transform: rotate(-26deg);
+  }
+}
+
+@keyframes dqDraw {
+  0% {
+    stroke-dashoffset: 1400;
+  }
+  60%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dqCandle {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.72);
+  }
+}
+
+@keyframes dqWaveArm {
+  0%,
+  100% {
+    transform: rotate(-80deg);
+  }
+  50% {
+    transform: rotate(-38deg);
+  }
+}

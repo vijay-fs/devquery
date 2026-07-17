@@ -1,0 +1,132 @@
+/* Scoped copy: CSS Modules scope animation names, so the keyframes must be local. */
+@keyframes dqUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.wrap {
+  aspect-ratio: 4 / 3;
+  animation: dqUp 0.7s ease both;
+  position: relative;
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.4s ease;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.steps {
+  position: absolute;
+  right: 0;
+  top: 64px;
+  bottom: 34px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.stepLabel {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: #c2c2c9;
+  transition: color 0.35s ease;
+}
+
+.stepLine {
+  width: 26px;
+  height: 1px;
+  background: #e8e8ed;
+  transition: background 0.35s ease;
+}
+
+.stepDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #d2d2d7;
+  transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+}
+
+.step.active .stepLabel {
+  color: #1d1d1f;
+}
+
+.step.active .stepLine {
+  background: rgba(0, 51, 255, 0.45);
+}
+
+.step.active .stepDot {
+  background: #0033ff;
+  border-color: #0033ff;
+  transform: scale(1.25);
+}
+
+.live {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #d2d2d7;
+  padding: 5px 12px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00b34d;
+}
+
+.liveText {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: #1d1d1f;
+}
+
+.header {
+  position: absolute;
+  left: 22px;
+  top: 14px;
+}
+
+.headerTitle {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: #86868b;
+}
+
+.headerSub {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: #c2c2c9;
+  margin-top: 4px;
+}

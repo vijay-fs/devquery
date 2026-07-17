@@ -1,0 +1,338 @@
+/* Keyframes referenced from module classes must live in the module: CSS Modules
+   scope animation names, so globally-defined keyframes would never match. */
+@keyframes dqSpinCube {
+  from {
+    transform: rotateX(-22deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-22deg) rotateY(360deg);
+  }
+}
+
+@keyframes dqFloatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes dqScan {
+  0% {
+    top: 4px;
+  }
+  50% {
+    top: calc(100% - 7px);
+  }
+  100% {
+    top: 4px;
+  }
+}
+
+@keyframes dqDrop {
+  0% {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+.section {
+  padding: clamp(80px, 10vw, 120px) 0;
+  border-top: 1px solid #e8e8ed;
+  border-bottom: 1px solid #e8e8ed;
+  background-image: linear-gradient(to right, rgba(0, 51, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 51, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(#fbfbfd, #fbfbfd);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+}
+
+.header {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.badge {
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: clamp(30px, 4.4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin: 0 0 18px;
+}
+
+.sub {
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.55;
+  color: #6e6e73;
+  margin: 0 auto;
+  max-width: 620px;
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+.bentoMain {
+  grid-column: span 7;
+  background: #fff;
+  border: 1px solid #d2d2d7;
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bentoMainHead {
+  padding: 36px 36px 0;
+}
+
+.flagBadge {
+  display: inline-block;
+  background: rgba(0, 51, 255, 0.08);
+  color: #0033ff;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 51, 255, 0.2);
+  margin-bottom: 18px;
+}
+
+.bentoTitle {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+.bentoBody {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: #6e6e73;
+  margin: 0;
+  max-width: 460px;
+}
+
+.chartWrap {
+  margin: 28px 36px 36px;
+}
+
+.chart {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #f5f5f7;
+  border: 1px solid #e8e8ed;
+  position: relative;
+}
+
+.chart svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bentoSide {
+  grid-column: span 5;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #d2d2d7;
+  border-radius: 22px;
+  padding: 32px;
+}
+
+.card:hover {
+  border-color: #0033ff;
+}
+
+.sideCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.cubePerspective {
+  width: 56px;
+  height: 56px;
+  perspective: 300px;
+  margin-bottom: 18px;
+}
+
+.cube {
+  width: 34px;
+  height: 34px;
+  margin: 11px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: dqSpinCube 9s linear infinite;
+}
+
+.cubeFace {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #0033ff;
+  background: rgba(0, 51, 255, 0.07);
+}
+
+.isoLayer {
+  position: absolute;
+  left: 10px;
+  animation: dqFloatY 4s ease-in-out infinite;
+}
+
+.isoDiamond {
+  width: 34px;
+  height: 34px;
+  transform: rotateX(56deg) rotateZ(45deg);
+}
+
+.disc {
+  position: absolute;
+  left: 8px;
+  width: 40px;
+  height: 14px;
+  border-radius: 50%;
+  animation: dqFloatY 3.6s ease-in-out infinite;
+}
+
+.scanBox {
+  width: 56px;
+  height: 56px;
+  position: relative;
+  border: 2px solid #0033ff;
+  background: rgba(0, 51, 255, 0.05);
+  overflow: hidden;
+  margin-bottom: 18px;
+  border-radius: 8px;
+}
+
+.scanLineText {
+  position: absolute;
+  left: 8px;
+  height: 2px;
+  background: rgba(0, 51, 255, 0.4);
+}
+
+.scanCircle {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 13px;
+  height: 13px;
+  border: 2px solid rgba(0, 51, 255, 0.5);
+  border-radius: 50%;
+}
+
+.scanBeam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #0033ff;
+  box-shadow: 0 0 10px rgba(0, 51, 255, 0.8);
+  animation: dqScan 2.6s ease-in-out infinite;
+}
+
+.trayBase {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 8px;
+  height: 10px;
+  border: 2px solid #0a1020;
+  border-top: none;
+}
+
+.dropArrow {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  margin-left: -8px;
+  animation: dqDrop 1.8s ease-in infinite;
+}
+
+.dropStem {
+  width: 4px;
+  height: 12px;
+  background: #0033ff;
+  margin: 0 auto;
+}
+
+.dropHead {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 9px solid #0033ff;
+}
+
+.kicker {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #86868b;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+.cardBody {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #6e6e73;
+  margin: 0;
+}
+
+.rowOfThree {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 860px) {
+  .bentoMain,
+  .bentoSide {
+    grid-column: span 12;
+  }
+}
