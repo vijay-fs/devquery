@@ -68,8 +68,8 @@ export default function Cta() {
             Book a Demo
             <ArrowRight size={18} strokeWidth={1.75} />
           </button>
-          <a href="mailto:hello@devquery.in" className={styles.email}>
-            hello@devquery.in
+          <a href="mailto:vijay@devquery.in" className={styles.email}>
+            vijay@devquery.in
           </a>
         </div>
       </div>

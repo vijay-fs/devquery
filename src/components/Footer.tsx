@@ -23,8 +23,8 @@ const COLUMNS = [
     title: "Company",
     links: [
       { label: "How we work", href: "#approach" },
-      { label: "Contact", href: "mailto:hello@devquery.in" },
-      { label: "hello@devquery.in", href: "mailto:hello@devquery.in" },
+      { label: "Contact", href: "mailto:vijay@devquery.in" },
+      { label: "vijay@devquery.in", href: "mailto:vijay@devquery.in" },
     ],
   },
 ];
@@ -60,7 +60,7 @@ export default function Footer() {
       <div className={styles.bottom}>
         <div className={`dq-container ${styles.bottomInner}`}>
           <span className={styles.fine}>© 2026 DevQuery. All rights reserved.</span>
-          <span className={styles.fine}>Built by DevQuery · devquery.in</span>
+          <span className={styles.fine}>Built by Vijay · devquery.in</span>
         </div>
       </div>
     </footer>
