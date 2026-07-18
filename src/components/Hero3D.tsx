@@ -319,25 +319,36 @@ void main() {
 
 export default function Hero3D() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
   const liveRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
-    const canvas = canvasRef.current;
     const stage = stageRef.current;
     const liveBadge = liveRef.current;
     const stepEls = stepsRef.current
       ? (Array.from(stepsRef.current.children) as HTMLElement[])
       : [];
-    if (!container || !canvas) return;
+    if (!container || !stage) return;
+
+    // Own the canvas instead of using a React-managed <canvas ref>. Under React
+    // StrictMode the effect mounts, cleans up, then mounts again; a shared canvas
+    // would hand the second mount a WebGL context the first mount already killed
+    // via forceContextLoss(), leaving the hero blank. A fresh canvas per mount
+    // (removed on cleanup) can never inherit a dead context.
+    const canvas = document.createElement("canvas");
+    canvas.className = styles.canvas;
+    canvas.setAttribute("aria-hidden", "true");
+    stage.prepend(canvas);
+    // A transient GPU context loss should recover rather than stay blank.
+    canvas.addEventListener("webglcontextlost", (event) => event.preventDefault());
 
     let renderer: THREE.WebGLRenderer;
     try {
       renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     } catch {
+      canvas.remove();
       return;
     }
     // The shaders output plain sRGB values; disable color management so the
@@ -437,13 +448,13 @@ export default function Hero3D() {
       material.dispose();
       renderer.dispose();
       renderer.forceContextLoss();
+      canvas.remove();
     };
   }, []);
 
   return (
     <div ref={containerRef} className={styles.wrap}>
       <div ref={stageRef} className={styles.stage}>
-        <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" />
         <div ref={stepsRef} className={styles.steps}>
           {STEP_LABELS.map((label) => (
             <div key={label} className={styles.step}>
